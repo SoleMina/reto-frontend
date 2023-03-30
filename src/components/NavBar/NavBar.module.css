@@ -1,0 +1,40 @@
+.main__navbar {
+    background-color: #2454c2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px 20px 20px;
+}
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user > img {
+    padding-left: 10px;
+}
+.secondary__navbar {
+    padding: 20px 40px;
+}
+.secondary__navbar > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    position: relative;
+}
+.secondary__navbar > ul > li > .links {
+    cursor: pointer;
+}
+.sublinks {
+    list-style: none;
+}
+.mt {
+    border-top: 1px solid blue;
+}
+.hovered {
+    opacity: 0;
+}
+.unhovered {
+    opacity: 1;
+}
