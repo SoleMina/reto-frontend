@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
-import data from '../../data/servicio.json'
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+import data from '../../data/servicio.json';
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
+
+  //Create date element to show current year
    const f: Date = new Date();
    const year = f.getFullYear();
   return (

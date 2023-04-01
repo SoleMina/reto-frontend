@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './NavBar.module.css';
 import ArrowDown from '../../../assets/images/Arrow-Down.svg';
 import Image from 'next/image';
 import { conditionalName } from '../../../utils/cases';
 
 const NavBar = ({ data}: any) => {
-    const [open, setOpen] = React.useState<boolean>(false);
-    const [isShow, setIsShow] = React.useState<boolean>(false);
-    const [hoveredSubMenu, setHoveredSubMenu] = React.useState<null>(null);
 
-    const handleShowSubmenu = () => {
+    //Create state
+    const [isShow, setIsShow] = React.useState<boolean>(false);
+    const [hoveredSubMenu, setHoveredSubMenu] = React.useState<string | undefined>('');
+    const [hoveredSubSubMenu, setHoveredSubSubMenu] = React.useState<string | undefined>('');
+
+    //Show submenu
+    const handleShowSubmenu = (type='menu', menu?: string, submenu?: string) => {
         setIsShow(true);
+        type == 'menu' ? setHoveredSubMenu(menu) : setHoveredSubSubMenu(submenu);
     }
-    const handleCloseSubmenu = () => {
+
+    //Hide submenu
+    const handleCloseSubmenu = (type='menu', menu?: string, submenu?: string) => {
         setIsShow(false);
+        type == 'menu' ? setHoveredSubMenu(menu) : setHoveredSubSubMenu(submenu);
     }
     let items: Array<any> = [];
     items.push(data.lista[0]);
     items = items[0];
-    console.log(items, 'items');
+
+    useEffect(() => {
+        console.log(hoveredSubMenu, 'hoveredSubMenu')
+
+    }, [hoveredSubMenu])
+    
+
   return (
     <div>
         <nav className={styles.main__navbar}>
@@ -41,27 +54,41 @@ const NavBar = ({ data}: any) => {
                         <ul key={index}>
                             {
                                 Object.entries(item).map(([key, value]: any) => {
-                                    console.log(key, 'key');
-                                    console.log(value, 'value');
                                     return (
-                                        <li key={key}>
-                                            <a className={styles.links} onMouseOver={handleShowSubmenu}>
+                                        <li key={key} onMouseOver={() => handleShowSubmenu('menu', key)}  onMouseLeave={() => handleCloseSubmenu('menu', key)}>
+                                            <a className={styles.links}>
                                                 {conditionalName(key)}
                                             </a>
-                                            <ul className={`${styles.sublinks} ${isShow && value.length > 0 && styles.mt}`}  onMouseLeave={handleCloseSubmenu}>{
-                                                isShow && value.map((el: any)  => {
-                                                    return (
-                                                        Object.entries(el).map(([llave, valor]: any) => {
-                                                            return(
-                                                                <li key={llave} className={hoveredSubMenu === llave ? styles.hovered : styles.unhovered}>
-                                                                    <a>{conditionalName(llave)}</a>
-                                                                </li>
+                                            {
+                                                hoveredSubMenu === key  && isShow && value.length > 0 && (
+                                                    <ul className={`${styles.sublinks}`}>{
+                                                        hoveredSubMenu==key && isShow && value.map((el: any)  => {
+                                                            return (
+                                                                Object.entries(el).map(([keysecond, valuesecond]: any) => {
+                                                                    return(
+                                                                        <li key={keysecond}  onMouseOver={() => handleShowSubmenu('submenu', key, keysecond)}>
+                                                                            <a>{conditionalName(keysecond)}</a>
+                                                                            <p>{keysecond}</p>
+                                                                            
+                                                                            {
+                                                                                hoveredSubSubMenu === keysecond && isShow && valuesecond.length < 1 && (
+                                                                                    <ul className={styles.subsubmenu}>
+                                                                                        <li>
+                                                                                            <a>New item</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                )
+                                                                            }
+                                                                        </li>
+                                                                        )
+                                                                    })
                                                                 )
                                                             })
-                                                        )
-                                                    })
-                                                }
-                                            </ul>
+                                                        }
+                                                    </ul>
+                                                )
+                                            }
+                                            
                                         </li>
                                     )
                                 })
