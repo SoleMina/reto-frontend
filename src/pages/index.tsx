@@ -1,11 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import data from '../../data/servicio.json';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+console.log(inter);
 
 export default function Home() {
   return (
@@ -17,9 +17,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar data={data} />
-      <div className='container'>
-      </div>
+      <div className="container"></div>
       <Footer />
     </>
-  )
+  );
 }

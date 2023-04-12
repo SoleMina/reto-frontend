@@ -1,13 +1,13 @@
 .footer {
-    padding: 40px;
-    color: white;
-    background-color: #2454c2;
+  padding: 40px;
+  color: white;
+  background-color: #2454c2;
 }
 .footer > ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
 }
 .headliner {
-    font-size: 25px;
+  font-size: 25px;
 }
