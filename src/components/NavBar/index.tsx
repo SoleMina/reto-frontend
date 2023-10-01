@@ -12,7 +12,22 @@ interface Props {
 }
 
 interface NavBarProps {
-  data: { lista: Array<string> };
+  // data: { lista: Array<string> };
+  data: {
+    lista: {
+      card_list: any[];
+      pays_transfer: {
+        between_cards: any[];
+        banks: any[];
+        credit_card: any[];
+      }[];
+      support: {
+        lock: any[];
+        change_pass: any[];
+      }[];
+      enterprises: any[];
+    }[];
+  };
 }
 
 const NavBar: React.FC<NavBarProps> = ({ data }) => {
