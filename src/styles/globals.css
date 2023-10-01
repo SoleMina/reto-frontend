@@ -35,5 +35,5 @@ a {
   background-image: url('../../assets/images/bg-content.jpg');
   background-size: cover;
   background-repeat: repeat;
-  height: 70vh;
+  min-height: 70vh;
 }

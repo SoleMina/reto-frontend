@@ -5,34 +5,36 @@ import Image from 'next/image';
 import { conditionalName } from '../../../utils/cases';
 import Link from 'next/link';
 
-const NavBar = ({ data }: any) => {
+interface Props {
+  type: 'menu' | 'submenu';
+  menu?: string;
+  submenu?: string;
+}
+
+interface NavBarProps {
+  data: { lista: Array<string> };
+}
+
+const NavBar: React.FC<NavBarProps> = ({ data }) => {
   //Create state
   const [isShow, setIsShow] = React.useState<boolean>(false);
-  const [hoveredSubMenu, setHoveredSubMenu] = React.useState<
-    string | undefined
-  >('');
-  const [hoveredSubSubMenu, setHoveredSubSubMenu] = React.useState<
-    string | undefined
-  >('');
+  const [hoveredSubMenu, setHoveredSubMenu] = React.useState<string>('');
+  const [hoveredSubSubMenu, setHoveredSubSubMenu] = React.useState<string>('');
 
   //Show submenu
-  const handleShowSubmenu = (
-    type = 'menu',
-    menu?: string,
-    submenu?: string
-  ) => {
+  const handleShowSubmenu = ({ type, menu, submenu }: Props) => {
     setIsShow(true);
-    type == 'menu' ? setHoveredSubMenu(menu) : setHoveredSubSubMenu(submenu);
+    type == 'menu'
+      ? setHoveredSubMenu(menu || '')
+      : setHoveredSubSubMenu(submenu || '');
   };
 
   //Hide submenu
-  const handleCloseSubmenu = (
-    type = 'menu',
-    menu?: string,
-    submenu?: string
-  ) => {
+  const handleCloseSubmenu = ({ type, menu, submenu }: Props) => {
     setIsShow(false);
-    type == 'menu' ? setHoveredSubMenu(menu) : setHoveredSubSubMenu(submenu);
+    type === 'menu'
+      ? setHoveredSubMenu(menu || '')
+      : setHoveredSubSubMenu(submenu || '');
   };
   let items: Array<any> = [];
   items.push(data.lista[0]);
@@ -61,8 +63,12 @@ const NavBar = ({ data }: any) => {
                 return (
                   <li
                     key={key}
-                    onMouseOver={() => handleShowSubmenu('menu', key)}
-                    onMouseLeave={() => handleCloseSubmenu('menu', key)}
+                    onMouseOver={() =>
+                      handleShowSubmenu({ type: 'menu', menu: key })
+                    }
+                    onMouseLeave={() =>
+                      handleCloseSubmenu({ type: 'menu', menu: key })
+                    }
                   >
                     <Link href="/" className={styles.links}>
                       {conditionalName(key)}
@@ -78,11 +84,11 @@ const NavBar = ({ data }: any) => {
                                   <li
                                     key={keysecond}
                                     onMouseOver={() =>
-                                      handleShowSubmenu(
-                                        'submenu',
-                                        key,
-                                        keysecond
-                                      )
+                                      handleShowSubmenu({
+                                        type: 'submenu',
+                                        menu: key,
+                                        submenu: keysecond,
+                                      })
                                     }
                                   >
                                     <Link href="/">

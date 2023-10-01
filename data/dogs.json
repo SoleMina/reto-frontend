@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Golden retriever",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/640px-Golde33443.jpg",
+    "description": "They are very friendly",
+    "category": "dog"
+  },
+  {
+    "id": 2,
+    "name": "Zamoyedo",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/My_dog.jpg/1600px-My_dog.jpg?20080825132837",
+    "description": "They are very sweet dogos",
+    "category": "dog"
+  },
+  {
+    "id": 3,
+    "name": "Beagle",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cute_beagle_puppy_lilly.jpg/1280px-Cute_beagle_puppy_lilly.jpg",
+    "description": "They have bog ears and are quiet",
+    "category": "dog"
+  },
+  {
+    "id": 4,
+    "name": "Chihuahua",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cute_beagle_puppy_lilly.jpg/1280px-Cute_beagle_puppy_lilly.jpg",
+    "description": "They have bog ears and are quiet",
+    "category": "dog"
+  },
+  {
+    "id": 5,
+    "name": "Poddle",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cute_beagle_puppy_lilly.jpg/1280px-Cute_beagle_puppy_lilly.jpg",
+    "description": "They have bog ears and are quiet",
+    "category": "dog"
+  },
+  {
+    "id": 6,
+    "name": "GoGo",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cute_beagle_puppy_lilly.jpg/1280px-Cute_beagle_puppy_lilly.jpg",
+    "description": "They have bog ears and are quiet",
+    "category": "dog"
+  }
+]
