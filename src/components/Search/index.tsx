@@ -5,8 +5,8 @@ import items from '@/dogs.json';
 import Link from 'next/link';
 
 const Search = () => {
-  const [term, setTerm] = useState<String>('');
-  const [value, setValue] = useState<String>('');
+  const [term, setTerm] = useState<string>('');
+  const [value, setValue] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
