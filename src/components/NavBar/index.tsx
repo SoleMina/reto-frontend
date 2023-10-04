@@ -60,7 +60,7 @@ const NavBar: React.FC<NavBarProps> = ({ data }) => {
   }, [hoveredSubMenu]);
 
   return (
-    <div>
+    <header>
       <nav className={styles.main__navbar}>
         <Link href="/">
           <h1>Tu PruTec</h1>
@@ -132,7 +132,7 @@ const NavBar: React.FC<NavBarProps> = ({ data }) => {
           );
         })}
       </nav>
-    </div>
+    </header>
   );
 };
 
