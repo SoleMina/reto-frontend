@@ -4,6 +4,7 @@ import Carousel from '@/components/Carousel';
 import Layout from '@/components/Layout';
 import NextHead from '@/components/NextHead';
 import Modal from '@/components/Modal';
+import Accordion from '@/components/Accordion';
 
 const inter = Inter({ subsets: ['latin'] });
 console.log(inter);
@@ -18,6 +19,7 @@ export default function Home() {
           <Search />
           <Modal title="Título" btn="Check more info here:" />
         </div>
+        <Accordion />
       </Layout>
     </>
   );
